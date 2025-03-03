@@ -1,0 +1,213 @@
+﻿<UserControl x:Class="IndividualWork3.View.UserControls.Task1UC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:IndividualWork3.View.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="700"
+             FontFamily="Comic Sans Ms">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Image Source="/Images/DMC.jpg"
+               Grid.RowSpan="2"
+               Stretch="UniformToFill"/>
+
+        <Border HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Grid.Row="0"
+                Background="Gray"
+                Width="400"
+                Height="90"
+                Opacity="0.8"
+                CornerRadius="15"
+                Effect="{StaticResource MaterialDesignElevationShadow16}">
+            <StackPanel>
+                <TextBlock Text="Задание 1 - Записать условие, которое является инстинным, когда"
+                           HorizontalAlignment="Left"
+                           TextWrapping="Wrap"
+                           Margin="5 0 0 0"
+                           VerticalAlignment="Center"
+                           FontSize="15"
+                           FontWeight="SemiBold"/>
+
+                <TextBlock Text="а) только одно из чисел А и B четное"
+                           FontSize="15"
+                           Margin="5 0 0 0"
+                           FontWeight="SemiBold"/>
+
+                <TextBlock Text="б) каждое из чисел A,B,C кратно трем"
+                           FontSize="15"
+                           Margin="5 0 0 0"
+                           FontWeight="SemiBold"/>
+            </StackPanel>
+        </Border>
+
+        <Border HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Grid.Row="1"
+                Margin="0 0 0 100"
+                Height="200"
+                Width="400"
+                CornerRadius="15"
+                Background="Gray"
+                Opacity="0.8"
+                Effect="{StaticResource MaterialDesignElevationShadow16}">
+            <StackPanel HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                <StackPanel>
+                    <TextBlock Text="Введите значения:"
+                               FontSize="20"
+                               FontWeight="Bold"/>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="AlphaA"
+                                                 VerticalAlignment="Center"
+                                                 Width="30"
+                                                 Height="30"/>
+                        <TextBox Width="80"
+                                 x:Name="Tba"
+                                 IsReadOnly="False"
+                                 FontSize="20"
+                                 Margin="0 0 0 0"
+                                 materialDesign:TextFieldAssist.UnderlineBrush="Black"/>
+
+                        <materialDesign:PackIcon Kind="AlphaB"
+                                                 VerticalAlignment="Center"
+                                                 Width="30"
+                                                 Margin="5 0 0 0"
+                                                 Height="30"/>
+                        <TextBox Width="80"
+                                 x:Name="Tbb"
+                                 IsReadOnly="False"
+                                 FontSize="20"
+                                 Margin="0 0 0 0"
+                                 materialDesign:TextFieldAssist.UnderlineBrush="Black"/>
+
+                        <materialDesign:PackIcon Kind="AlphaC"
+                                                 VerticalAlignment="Center"
+                                                 Width="30"
+                                                 Margin="5 0 0 0"
+                                                 Height="30"/>
+                        <TextBox Width="80"
+                                 x:Name="Tbc"
+                                 IsReadOnly="False"
+                                 FontSize="20"
+                                 Margin="0 0 0 0"
+                                 materialDesign:TextFieldAssist.UnderlineBrush="Black"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            Margin="0 10 0 0">
+                    <Button Background="Transparent"
+                            Foreground="Black"
+                            Width="150"
+                            x:Name="BtnAnswerA"
+                            Click="BtnAnswerA_Click"
+                            Style="{StaticResource MaterialDesignRaisedButton}"
+                            materialDesign:ButtonProgressAssist.Value="-1"
+                            materialDesign:ButtonProgressAssist.IndicatorForeground="Red"
+                            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                            materialDesign:ButtonProgressAssist.IsIndeterminate="True">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Check"
+                                                     Width="25"
+                                                     Height="25"/>
+                            <TextBlock Text="Ответ a"
+                                       FontSize="20"
+                                       VerticalAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="TextDecorations" Value="Underline"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Background="Transparent"
+                            Foreground="Black"
+                            Width="150"
+                            Margin="40 0 0 0"
+                            x:Name="BtnAnswerB"
+                            Click="BtnAnswerB_Click"
+                            Style="{StaticResource MaterialDesignRaisedButton}"
+                            materialDesign:ButtonProgressAssist.Value="-1"
+                            materialDesign:ButtonProgressAssist.IndicatorForeground="Red"
+                            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                            materialDesign:ButtonProgressAssist.IsIndeterminate="True">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Check"
+                                                     Width="25"
+                                                     Height="25"/>
+                            <TextBlock Text="Ответ б"
+                                       FontSize="20"
+                                       VerticalAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="TextDecorations" Value="Underline"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Margin="0 10 0 0"
+                            x:Name="SpAns"
+                            Visibility="Hidden">
+                    <TextBlock x:Name="TbAnswer"
+                               FontSize="15"
+                               FontWeight="SemiBold"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        <Button Grid.Row="1"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Margin="10 0 0 100"
+                Width="50"
+                Height="45"
+                Style="{StaticResource MaterialDesignIconForegroundButton}"
+                Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}"
+                Background="Red"
+                ToolTip="Вернуться на главную"
+                Opacity="0.7">
+            <materialDesign:PackIcon Kind="ArrowLeft"
+                                     Foreground="Black"
+                                     Width="30"
+                                     Height="30"/>
+        </Button>
+
+        <Button Grid.Row="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Margin="0 0 10 100"
+                Width="50"
+                Height="45"
+                Style="{StaticResource MaterialDesignIconForegroundButton}"
+                Command="{x:Static materialDesign:Transitioner.MoveNextCommand}"
+                Background="#00FF00"
+                ToolTip="Задание 2"
+                Opacity="0.7">
+            <materialDesign:PackIcon Kind="ArrowRight"
+                                     Foreground="Black"
+                                     Width="30"
+                                     Height="30"/>
+        </Button>
+    </Grid>
+</UserControl>
