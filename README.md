@@ -8,3 +8,17 @@ app.get('/api/admin/appointments', requireAdmin, async (req, res) => {
       'JOIN specialists AS s ON s.id = a.specialist_id ' +
       'ORDER BY a.appt_date DESC, a.appt_time DESC, a.id DESC'
     );
+
+    res.json(rows);
+  } catch (error) {
+    console.error(
+      'Ошибка просмотра записей:',
+      error.code,
+      error.sqlMessage
+    );
+
+    res.status(500).json({
+      error: 'Не удалось загрузить записи.'
+    });
+  }
+});
