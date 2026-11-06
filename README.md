@@ -1,59 +1,57 @@
-<script>
-    const tbody = document.getElementById('appointments');
-    const message = document.getElementById('message');
-    const refresh = document.getElementById('refresh');
+          for (const value of values) {
+            const cell = document.createElement('td');
+            cell.textContent = value == null ? '' : String(value);
+            row.append(cell);
+          }
 
-    function formatDate(value) {
-      const parts = String(value).slice(0, 10).split('-');
+          const actionCell = document.createElement('td');
 
-      if (parts.length !== 3) {
-        return String(value);
-      }
+          const deleteButton = document.createElement('button');
+          deleteButton.type = 'button';
+          deleteButton.textContent = 'Удалить';
 
-      return parts[2] + '.' + parts[1] + '.' + parts[0];
-    }
+          deleteButton.addEventListener('click', async () => {
+            const confirmed = confirm(
+              'Удалить запись №' + appointment.id + '?'
+            );
 
-    async function loadAppointments() {
-      refresh.disabled = true;
-      message.textContent = 'Загружаем записи...';
-      tbody.replaceChildren();
+            if (!confirmed) {
+              return;
+            }
 
-      try {
-        const response = await fetch('/api/admin/appointments', {
-          credentials: 'same-origin',
-          cache: 'no-store'
-        });
+            deleteButton.disabled = true;
 
-        if (response.status === 401) {
-          throw new Error(
-            'Вход не выполнен. Обновите страницу и введите логин и пароль.'
-          );
-        }
+            try {
+              const response = await fetch(
+                '/api/admin/appointments/' + appointment.id,
+                {
+                  method: 'DELETE',
+                  credentials: 'same-origin'
+                }
+              );
 
-        const result = await response.json();
+              const result = await response.json();
 
-        if (!response.ok) {
-          throw new Error(
-            result.error || 'Не удалось загрузить записи.'
-          );
-        }
+              if (!response.ok) {
+                throw new Error(
+                  result.error || 'Не удалось удалить запись.'
+                );
+              }
 
-        if (!Array.isArray(result)) {
-          throw new Error('Сервер вернул неожиданный ответ.');
-        }
+              await loadAppointments();
+            } catch (error) {
+              alert(
+                'Не удалось удалить запись. ' + error.message
+              );
+            } finally {
+              deleteButton.disabled = false;
+            }
+          });
 
-        for (const appointment of result) {
-          const row = document.createElement('tr');
+          actionCell.append(deleteButton);
+          row.append(actionCell);
 
-          const values = [
-            appointment.id,
-            appointment.client_name,
-            appointment.phone,
-            appointment.specialist_name,
-            formatDate(appointment.appt_date),
-            String(appointment.appt_time).slice(0, 5)
-          ];
-
+          tbody.append(row);
           for (const value of values) {
             const cell = document.createElement('td');
             cell.textContent = value == null ? '' : String(value);
