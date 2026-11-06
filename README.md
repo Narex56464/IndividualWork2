@@ -1,36 +1,67 @@
-app.delete('/api/admin/appointments/:id', requireAdmin, async (req, res) => {
-  try {
-    const id = Number(req.params.id);
+for (const appointment of result) {
+  const row = document.createElement('tr');
 
-    if (!Number.isInteger(id) || id <= 0) {
-      return res.status(400).json({
-        error: 'Некорректный идентификатор записи.'
-      });
-    }
+  const values = [
+    appointment.id,
+    appointment.client_name,
+    appointment.phone,
+    appointment.specialist_name,
+    formatDate(appointment.appt_date),
+    String(appointment.appt_time).slice(0, 5)
+  ];
 
-    const [result] = await pool.query(
-      'DELETE FROM appointments WHERE id = ?',
-      [id]
-    );
-
-    if (result.affectedRows === 0) {
-      return res.status(404).json({
-        error: 'Запись не найдена.'
-      });
-    }
-
-    res.json({
-      success: true
-    });
-  } catch (error) {
-    console.error(
-      'Ошибка удаления записи:',
-      error.code,
-      error.sqlMessage
-    );
-
-    res.status(500).json({
-      error: 'Не удалось удалить запись.'
-    });
+  for (const value of values) {
+    const cell = document.createElement('td');
+    cell.textContent = value == null ? '' : String(value);
+    row.append(cell);
   }
-});
+
+  const actionCell = document.createElement('td');
+
+  const deleteButton = document.createElement('button');
+  deleteButton.type = 'button';
+  deleteButton.textContent = 'Удалить';
+
+  deleteButton.addEventListener('click', async () => {
+    const confirmed = confirm(
+      'Удалить запись №' + appointment.id + '?'
+    );
+
+    if (!confirmed) {
+      return;
+    }
+
+    deleteButton.disabled = true;
+
+    try {
+      const response = await fetch(
+        '/api/admin/appointments/' + appointment.id,
+        {
+          method: 'DELETE',
+          credentials: 'same-origin'
+        }
+      );
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          result.error || 'Не удалось удалить запись.'
+        );
+      }
+
+      await loadAppointments();
+    } catch (error) {
+      alert(
+        'Не удалось удалить запись. ' + error.message
+      );
+    } finally {
+      deleteButton.disabled = false;
+    }
+  });
+
+  actionCell.append(deleteButton);
+  row.append(actionCell);
+
+  tbody.append(row);
+}
