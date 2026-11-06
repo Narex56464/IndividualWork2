@@ -1,1 +1,1 @@
-DELETE FROM appointments;
+SELECT COUNT(*) AS total FROM appointments;
