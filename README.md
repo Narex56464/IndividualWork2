@@ -1,1 +1,1 @@
-<th scope="col">Действия</th>
+<th scope="col">Действия</th> 
