@@ -1,11 +1,3 @@
-      <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>Error</title>
-</head>
-<body>
-<pre>Cannot DELETE /api/admin/appointments/18</pre>
-</body>
-</html>
+      console.log('Маршрут удаления подключён. Файл:', __filename);
 
+app.delete('/api/admin/appointments/:id', requireAdmin, async (req, res) => {
