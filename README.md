@@ -1,4 +1,4 @@
-    <script>
+<script>
     const tbody = document.getElementById('appointments');
     const message = document.getElementById('message');
     const refresh = document.getElementById('refresh');
@@ -123,4 +123,3 @@
 refresh.addEventListener('click', loadAppointments);
 loadAppointments();
 </script> 
-</html>
