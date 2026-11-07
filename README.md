@@ -123,5 +123,4 @@
 refresh.addEventListener('click', loadAppointments);
 loadAppointments();
 </script> 
-</body>
 </html>
