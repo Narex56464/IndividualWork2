@@ -1,3 +1,2 @@
-async function loadAppointments() {
-  appointmentsLoaded = false;
-  refresh.disabled = true;
+appointmentsLoaded = true;
+filterAppointments();
