@@ -1,6 +1,5 @@
-          <input
-        id="phone"
-        name="client_phone"
+      <input
+        id="edit-phone"
         type="tel"
         inputmode="tel"
         autocomplete="tel"
