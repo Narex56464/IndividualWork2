@@ -1,4 +1,4 @@
-      <label for="phone">Телефон</label>
+[[http://127.0.0.1:3000/phone-mask.js      <label for="phone">Телефон</label>
       <input
         id="phone"
         name="client_phone"
@@ -11,3 +11,4 @@
         data-phone-mask
         required
       >
+](http://127.0.0.1:3000/phone-mask.js)](http://127.0.0.1:3000/phone-mask.js)
