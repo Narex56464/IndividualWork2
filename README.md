@@ -1,58 +1,43 @@
-  <dialog id="edit-dialog" aria-labelledby="edit-title">
-    <form id="edit-form">
-      <h2 id="edit-title">Редактирование записи</h2>
+function filterAppointments() {
+  if (!appointmentsLoaded) {
+    return;
+  }
 
-      <input id="edit-id" type="hidden">
+  const query = searchInput.value.trim().toLowerCase();
+  const phoneQuery = query.replace(/\D/g, '');
 
-      <label for="edit-name">Имя клиента</label>
-      <input
-        id="edit-name"
-        type="text"
-        minlength="2"
-        maxlength="100"
-        required
-      >
+  let visibleCount = 0;
 
-      <label for="edit-phone">Телефон</label>
-      <input
-        id="edit-phone"
-        type="tel"
-        minlength="5"
-        maxlength="30"
-        required
-      >
+  for (const row of tbody.rows) {
+    const name = row.cells[1].textContent.toLowerCase();
+    const phone = row.cells[2].textContent;
+    const phoneDigits = phone.replace(/\D/g, '');
 
-      <label for="edit-specialist">Специалист</label>
-      <select id="edit-specialist" required></select>
+    const matches =
+      query === '' ||
+      name.includes(query) ||
+      phone.toLowerCase().includes(query) ||
+      (
+        phoneQuery.length > 0 &&
+        /^[\d\s()+.-]+$/.test(query) &&
+        phoneDigits.includes(phoneQuery)
+      );
 
-      <label for="edit-date">Дата</label>
-      <input id="edit-date" type="date" required>
+    row.hidden = !matches;
 
-      <label for="edit-time">Время</label>
-      <select id="edit-time" required>
-        <option value="09:00">09:00</option>
-        <option value="10:00">10:00</option>
-        <option value="11:00">11:00</option>
-        <option value="12:00">12:00</option>
-        <option value="13:00">13:00</option>
-        <option value="14:00">14:00</option>
-        <option value="15:00">15:00</option>
-        <option value="16:00">16:00</option>
-        <option value="17:00">17:00</option>
-        <option value="18:00">18:00</option>
-        <option value="19:00">19:00</option>
-      </select>
+    if (matches) {
+      visibleCount++;
+    }
+  }
 
-      <p id="edit-message" role="status" aria-live="polite"></p>
+  const total = tbody.rows.length;
 
-      <div class="edit-actions">
-        <button id="edit-save" type="submit" disabled>
-          Сохранить
-        </button>
-
-        <button id="edit-cancel" type="button">
-          Отмена
-        </button>
-      </div>
-    </form>
-  </dialog>
+  if (total === 0) {
+    message.textContent = 'Записей пока нет.';
+  } else if (query === '') {
+    message.textContent = 'Всего записей: ' + total;
+  } else {
+    message.textContent =
+      'Найдено записей: ' + visibleCount + ' из ' + total;
+  }
+}
