@@ -1,4 +1,3 @@
-SELECT id, client_name, status
-FROM appointments
-ORDER BY id DESC
-LIMIT 5;
+<th scope="col">Время</th>
+<th scope="col">Статус</th>
+<th scope="col">Действия</th>
