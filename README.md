@@ -1,43 +1,13 @@
-function filterAppointments() {
-  if (!appointmentsLoaded) {
-    return;
-  }
+    <div class="date-filter">
+      <label for="date-filter">Дата записи</label>
 
-  const query = searchInput.value.trim().toLowerCase();
-  const phoneQuery = query.replace(/\D/g, '');
+      <select id="date-filter">
+        <option value="all">Все записи</option>
+        <option value="today">Сегодня</option>
+        <option value="tomorrow">Завтра</option>
+        <option value="custom">Выбрать дату</option>
+      </select>
 
-  let visibleCount = 0;
-
-  for (const row of tbody.rows) {
-    const name = row.cells[1].textContent.toLowerCase();
-    const phone = row.cells[2].textContent;
-    const phoneDigits = phone.replace(/\D/g, '');
-
-    const matches =
-      query === '' ||
-      name.includes(query) ||
-      phone.toLowerCase().includes(query) ||
-      (
-        phoneQuery.length > 0 &&
-        /^[\d\s()+.-]+$/.test(query) &&
-        phoneDigits.includes(phoneQuery)
-      );
-
-    row.hidden = !matches;
-
-    if (matches) {
-      visibleCount++;
-    }
-  }
-
-  const total = tbody.rows.length;
-
-  if (total === 0) {
-    message.textContent = 'Записей пока нет.';
-  } else if (query === '') {
-    message.textContent = 'Всего записей: ' + total;
-  } else {
-    message.textContent =
-      'Найдено записей: ' + visibleCount + ' из ' + total;
-  }
-}
+      <label for="filter-date">Конкретная дата</label>
+      <input id="filter-date" type="date" disabled>
+    </div>
