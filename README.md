@@ -1,16 +1,38 @@
-    .search-wrapper,
-    .date-filter {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 16px;
-    }
+const dateFilter = document.getElementById('date-filter');
+const filterDate = document.getElementById('filter-date');
 
-    .date-filter select,
-    .date-filter input {
-      padding: 8px;
-      border: 1px solid #ccd3df;
-      border-radius: 6px;
-      font: inherit;
-    }
+function getMoscowDate(offsetDays = 0) {
+  const parts = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Europe/Moscow',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).formatToParts(new Date());
+
+  const values = {};
+
+  for (const part of parts) {
+    values[part.type] = part.value;
+  }
+
+  const date = new Date(
+    values.year + '-' + values.month + '-' + values.day +
+    'T00:00:00Z'
+  );
+
+  date.setUTCDate(date.getUTCDate() + offsetDays);
+
+  return date.toISOString().slice(0, 10);
+}
+
+dateFilter.addEventListener('change', () => {
+  filterDate.disabled = dateFilter.value !== 'custom';
+
+  if (dateFilter.value === 'custom' && !filterDate.value) {
+    filterDate.value = getMoscowDate();
+  }
+
+  filterAppointments();
+});
+
+filterDate.addEventListener('input', filterAppointments);
