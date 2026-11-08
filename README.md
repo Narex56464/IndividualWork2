@@ -1,3 +1,5 @@
-<th scope="col">Время</th>
-<th scope="col">Статус</th>
-<th scope="col">Действия</th>
+const statusLabels = {
+  new: 'Новая',
+  confirmed: 'Подтверждена',
+  cancelled: 'Отменена'
+};
