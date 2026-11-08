@@ -1,13 +1,16 @@
-    <div class="date-filter">
-      <label for="date-filter">Дата записи</label>
+    .search-wrapper,
+    .date-filter {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
 
-      <select id="date-filter">
-        <option value="all">Все записи</option>
-        <option value="today">Сегодня</option>
-        <option value="tomorrow">Завтра</option>
-        <option value="custom">Выбрать дату</option>
-      </select>
-
-      <label for="filter-date">Конкретная дата</label>
-      <input id="filter-date" type="date" disabled>
-    </div>
+    .date-filter select,
+    .date-filter input {
+      padding: 8px;
+      border: 1px solid #ccd3df;
+      border-radius: 6px;
+      font: inherit;
+    }
