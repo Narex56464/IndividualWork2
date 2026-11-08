@@ -1,1 +1,1 @@
-<script src="/phone-mask.js"></script>
+editPhone.dispatchEvent(new Event('input', { bubbles: true }));
