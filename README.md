@@ -1,58 +1,73 @@
-  <dialog id="edit-dialog" aria-labelledby="edit-title">
-    <form id="edit-form">
-      <h2 id="edit-title">Редактирование записи</h2>
+const editDialog = document.getElementById('edit-dialog');
+const editForm = document.getElementById('edit-form');
+const editId = document.getElementById('edit-id');
+const editName = document.getElementById('edit-name');
+const editPhone = document.getElementById('edit-phone');
+const editSpecialist = document.getElementById('edit-specialist');
+const editDate = document.getElementById('edit-date');
+const editTime = document.getElementById('edit-time');
+const editMessage = document.getElementById('edit-message');
+const editSave = document.getElementById('edit-save');
+const editCancel = document.getElementById('edit-cancel');
 
-      <input id="edit-id" type="hidden">
+editCancel.addEventListener('click', () => {
+  editDialog.close();
+});
 
-      <label for="edit-name">Имя клиента</label>
-      <input
-        id="edit-name"
-        type="text"
-        minlength="2"
-        maxlength="100"
-        required
-      >
+editForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+});
 
-      <label for="edit-phone">Телефон</label>
-      <input
-        id="edit-phone"
-        type="tel"
-        minlength="5"
-        maxlength="30"
-        required
-      >
+async function openEditDialog(appointment) {
+  editForm.reset();
 
-      <label for="edit-specialist">Специалист</label>
-      <select id="edit-specialist" required></select>
+  editId.value = appointment.id;
+  editName.value = appointment.client_name || '';
+  editPhone.value = appointment.phone || '';
+  editDate.value = String(appointment.appt_date).slice(0, 10);
+  editTime.value = String(appointment.appt_time).slice(0, 5);
 
-      <label for="edit-date">Дата</label>
-      <input id="edit-date" type="date" required>
+  editSave.disabled = true;
+  editMessage.textContent = 'Загружаем специалистов...';
+  editSpecialist.replaceChildren();
 
-      <label for="edit-time">Время</label>
-      <select id="edit-time" required>
-        <option value="09:00">09:00</option>
-        <option value="10:00">10:00</option>
-        <option value="11:00">11:00</option>
-        <option value="12:00">12:00</option>
-        <option value="13:00">13:00</option>
-        <option value="14:00">14:00</option>
-        <option value="15:00">15:00</option>
-        <option value="16:00">16:00</option>
-        <option value="17:00">17:00</option>
-        <option value="18:00">18:00</option>
-        <option value="19:00">19:00</option>
-      </select>
+  editDialog.showModal();
 
-      <p id="edit-message" role="status" aria-live="polite"></p>
+  try {
+    const response = await fetch('/api/specialists', {
+      credentials: 'same-origin',
+      cache: 'no-store'
+    });
 
-      <div class="edit-actions">
-        <button id="edit-save" type="submit" disabled>
-          Сохранить
-        </button>
+    if (!response.ok) {
+      throw new Error('Не удалось загрузить специалистов.');
+    }
 
-        <button id="edit-cancel" type="button">
-          Отмена
-        </button>
-      </div>
-    </form>
-  </dialog>
+    const specialists = await response.json();
+
+    if (!Array.isArray(specialists)) {
+      throw new Error('Сервер вернул неожиданный ответ.');
+    }
+
+    for (const specialist of specialists) {
+      const option = document.createElement('option');
+      option.value = String(specialist.id);
+      option.textContent = specialist.name;
+      editSpecialist.append(option);
+    }
+
+    editSpecialist.value = String(appointment.specialist_id);
+
+    if (!editSpecialist.value) {
+      throw new Error(
+        'Не удалось выбрать текущего специалиста. ' +
+        'Проверьте, что API записей возвращает specialist_id.'
+      );
+    }
+
+    editMessage.textContent =
+      'Форма готова. Сохранение подключим следующим шагом.';
+  } catch (error) {
+    editMessage.textContent = error.message;
+  }
+}
