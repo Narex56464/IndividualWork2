@@ -1,3 +1,1 @@
-appointmentsLoaded = true;
-filterAppointments();
-updateTodaySummary();
+todaySummary.textContent = 'Записей на сегодня: —';
