@@ -1,1 +1,1 @@
-todaySummary.textContent = 'Записей на сегодня: —';
+updateTodaySummary();
