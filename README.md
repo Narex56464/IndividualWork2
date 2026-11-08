@@ -1,3 +1,4 @@
-ALTER TABLE appointments
-ADD COLUMN status VARCHAR(20) NOT NULL DEFAULT 'new'
-AFTER appt_time;
+SELECT id, client_name, status
+FROM appointments
+ORDER BY id DESC
+LIMIT 5;
