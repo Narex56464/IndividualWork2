@@ -1,9 +1,12 @@
-    <div class="theme-toolbar">
-      <button
-        id="theme-toggle"
-        type="button"
-        aria-pressed="false"
+          <input
+        id="phone"
+        name="client_phone"
+        type="tel"
+        inputmode="tel"
+        autocomplete="tel"
+        placeholder="+_(___)-___-__-__"
+        pattern="\+[0-9]\([0-9]{3}\)\-[0-9]{3}\-[0-9]{2}\-[0-9]{2}"
+        title="Введите 11 цифр. Например: +7(999)-123-45-67"
+        data-phone-mask
+        required
       >
-        Включить тёмную тему
-      </button>
-    </div>
