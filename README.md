@@ -3,17 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Прогулка по Санкт-Петербургу</title>
+  <title>Мосты Санкт-Петербурга</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 <div id="wrapper">
 
   <div id="header">
-    <img id="hero" src="../image/most.jpg" alt="Мост в Санкт-Петербурге">
     <div class="header-text">
-      <h1>Прогулка по Санкт-Петербургу</h1>
-      <p>Знакомство с городом на Неве</p>
+      <h1>Мосты Санкт-Петербурга</h1>
+      <p>Город на островах и сотни мостов</p>
     </div>
   </div>
 
@@ -29,12 +28,12 @@
   </div>
 
   <div id="content">
-    <h2>Добро пожаловать!</h2>
+    <h2>Разводные мосты</h2>
     <div class="intro">
-      <img class="content-image" src="../image/avrora.jpg" alt="Крейсер Аврора">
+      <img class="content-image" src="../image/most.jpg" alt="Дворцовый мост">
       <div class="intro-text">
-        <p>Приглашаем вас на виртуальную прогулку по Санкт-Петербургу!</p>
-        <p>На страницах сайта будут размещены фотографии и материалы для нашей прогулки.</p>
+        <p>Дворцовый мост — один из символов города. Ночью его разводят, чтобы суда могли пройти по Неве.</p>
+        <p>Другие известные мосты: Троицкий, Благовещенский и Биржевой.</p>
       </div>
     </div>
   </div>
