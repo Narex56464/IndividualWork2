@@ -1,1 +1,2 @@
-[C:\Users\user\ReelHub\Scripts\python.exe -c "import praw; import dotenv; print('Библиотеки готовы')"](https://support.reddithelp.com/hc/en-us/articles/14945211791892-Developer-Platform-Accessing-Reddit-Data)
+[[C:\Users\user\ReelHub\Scripts\python.exe -c "import praw; import dotenv; print('Библиотеки готовы')"](https://support.reddithelp.com/hc/en-us/articles/14945211791892-Developer-Platform-Accessing-Reddit-Data)
+](https://support.reddithelp.com/hc/en-us/articles/14945211791892-Developer-Platform-Accessing-Reddit-Data)
