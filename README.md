@@ -1,1 +1,1 @@
-.\ReelHub\Scripts\python.exe -m pip install flask
+.\ReelHub\Scripts\python.exe -m flask --version
