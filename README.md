@@ -1,3 +1,5 @@
-Subject to approval, the application would display public video posts from selected subreddits, including post titles, author usernames, subreddit names, and links to the original posts.
+The initial scope is local development, testing, and a diploma demonstration for my instructors and examination committee. No public deployment is currently planned.
 
-The application would provide browsing and local favorites features. It would not post, comment, vote, or send messages on Reddit. Any in-app likes would be local only and would not affect Reddit.
+Subject to approval, the prototype would display public Reddit video posts and associated attribution through the approved access method, with links to the original posts. I do not plan to download, rehost, or distribute copies of the video files.
+
+Please advise whether this display of Reddit content is permitted and what requirements apply.
