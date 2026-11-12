@@ -1,11 +1,7 @@
-ReelHub is a standalone, non-commercial web application being developed as a student diploma project. It uses Python and Flask for the backend and HTML, CSS and JavaScript for the frontend. It is a video-browsing application, not an automated posting bot.
+ReelHub is being developed as a standalone web application with a Python/Flask backend and an HTML, CSS and JavaScript frontend, rather than as an application running inside Reddit.
 
-Subject to Reddit's approval, the application would use read-only Data API access to retrieve public video posts from selected subreddits. The planned interface is a vertical video feed with playback controls, navigation between posts, and options to browse or search for subreddits.
+The main limitation for this project is the runtime and deployment model. Devvit provides a Reddit-hosted application environment with a Node.js-compatible backend, whereas the current prototype uses a locally running Python/Flask server. Moving to Devvit would require rewriting the backend and changing how the application is deployed and demonstrated.
 
-Each displayed post would include its title, author username, subreddit name and a link to the original Reddit post. Users could follow that link to view the original discussion on Reddit.
+I understand that Devvit supports web interfaces, so I am not claiming that the video-feed interface itself is impossible to build on Devvit. The mismatch is with the planned standalone architecture and Python backend.
 
-Favorites would be stored locally as references to posts. Any in-app likes would be local only and would not affect Reddit votes. The application would not post, comment, vote, send messages or perform moderation actions.
-
-I do not plan to download or rehost video files. Please advise which approved method, if any, may be used to display Reddit-hosted videos in this standalone application.
-
-The current prototype runs locally and displays a test video. Reddit API integration has not yet been implemented, and no Reddit data is currently being collected through the API. The initial scope is local development, testing and a diploma demonstration, rather than a public launch.
+Please advise whether read-
