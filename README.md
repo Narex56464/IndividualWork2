@@ -1,7 +1,7 @@
-ReelHub is a standalone, non-commercial web application being developed as a student diploma project using Python, Flask, HTML, CSS and JavaScript.
+ReelHub is planned as a standalone web application with a Python/Flask backend and an HTML, CSS and JavaScript frontend, rather than an application running inside Reddit.
 
-Subject to approval, it would use read-only Reddit Data API access to retrieve public video posts, initially from r/funnyvideos. Users would browse these posts in a vertical video feed with playback controls and navigation between posts.
+The main mismatch is the runtime and deployment model. The current prototype runs locally using Python and Flask. Moving it to Devvit would require rewriting the backend for Devvit's supported environment and changing how the application is deployed and demonstrated.
 
-Each displayed post would include its title, author username, subreddit name and a link to the original Reddit post. Users could open the original post on Reddit to read or participate in its discussion.
+I understand that Devvit supports web interfaces, so I am not claiming that a vertical video-feed interface is impossible to build on Devvit. The limitation for this project is preserving its standalone architecture and Python backend.
 
-Favorites would be stored locally as references to posts. Any in-app likes would also be local only and would not affect Reddit votes. The application would not post, com
+Please advise whether this use case qualifies for read-only Data API access or whether I should redesign the project for Devvit or use another approved approach.
