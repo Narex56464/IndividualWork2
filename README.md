@@ -1,7 +1,7 @@
-ReelHub aims to help users discover and browse public Reddit video posts from selected subreddits through a simple vertical-feed interface.
+ReelHub is a standalone, non-commercial web application being developed as a student diploma project using Python, Flask, HTML, CSS and JavaScript.
 
-Planned features include video browsing, saving references to favorite posts locally, and clear attribution with links to the original Reddit posts. Users could follow those links to visit the original communities and participate in discussions on Reddit.
+Subject to approval, it would use read-only Reddit Data API access to retrieve public video posts, initially from r/funnyvideos. Users would browse these posts in a vertical video feed with playback controls and navigation between posts.
 
-ReelHub is a non-commercial student diploma project, not an automated posting bot. It would not post, comment, vote, send messages, or perform moderation actions. Any in-app likes and favorites would be local only and would not affect Reddit.
+Each displayed post would include its title, author username, subreddit name and a link to the original Reddit post. Users could open the original post on Reddit to read or participate in its discussion.
 
-The application is currently a local prototype. Access to Reddit data would only be implemented if approved and in accordance with the applicable requirements.
+Favorites would be stored locally as references to posts. Any in-app likes would also be local only and would not affect Reddit votes. The application would not post, com
