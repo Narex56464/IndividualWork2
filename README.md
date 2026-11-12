@@ -1,3 +1,3 @@
-ReelHub is a non-commercial student diploma project. Its purpose is to demonstrate the development of a web application using Python, Flask, HTML, CSS and JavaScript.
+Subject to approval, the application would display public video posts from selected subreddits, including post titles, author usernames, subreddit names, and links to the original posts.
 
-The planned application will let users browse public Reddit video posts in a vertical feed, view attribution, open the original Reddit posts, and save references to favorite posts locally.
+The application would provide browsing and local favorites features. It would not post, comment, vote, or send messages on Reddit. Any in-app likes would be local only and would not affect Reddit.
