@@ -1,5 +1,5 @@
-The project is currently at an early prototype stage. A local Flask server and a basic HTML interface with a test video player are implemented. Reddit API integration has not yet been implemented, and no Reddit data is currently being collected through the API.
+ReelHub aims to help users discover and browse public Reddit video posts from selected subreddits through a simple vertical-feed interface.
 
-The next planned stages are developing the video feed interface, adding local favorites, and testing the application. Reddit API integration will only be implemented if access is approved.
+The planned benefits include convenient video browsing, local favorites for saving references to interesting posts, and clear attribution with links to the original Reddit posts. These links would allow users to visit the original communities and participate in discussions on Reddit.
 
-The completion date has not yet been finalized. The project is intended for a student diploma demonstration, and the integration timeline will depend on approval and the applicable requirements.
+The application is a non-commercial student diploma project. It is not intended to replace Reddit or automate interactions. It will not post, comment, vote, or send messages on users' behalf. Reddit content will only be accessed if approval is granted and in accordance with the applicable requirements.
