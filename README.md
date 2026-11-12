@@ -1,7 +1,7 @@
-ReelHub aims to help users discover public Reddit video posts through a simple vertical-feed interface. Planned features include browsing videos from selected subreddits, saving references to favorite posts locally, and opening the original Reddit posts to view discussions.
+ReelHub aims to help users discover and browse public Reddit video posts from selected subreddits through a simple vertical-feed interface.
 
-Displayed posts would include attribution and links to their original communities, helping users find the source of the content.
+Planned features include video browsing, saving references to favorite posts locally, and clear attribution with links to the original Reddit posts. Users could follow those links to visit the original communities and participate in discussions on Reddit.
 
-ReelHub is not a moderation tool and does not currently offer moderator-specific features. It would not post, comment, vote, send messages, or perform moderation actions. Its intended benefit for moderators is indirect: clear attribution and links would help users identify the original community and access its rules and discussion on Reddit.
+ReelHub is a non-commercial student diploma project, not an automated posting bot. It would not post, comment, vote, send messages, or perform moderation actions. Any in-app likes and favorites would be local only and would not affect Reddit.
 
-The application is a non-commercial student diploma project. These features are planned and would only use Reddit data if access is approved.
+The application is currently a local prototype. Access to Reddit data would only be implemented if approved and in accordance with the applicable requirements.
