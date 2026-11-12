@@ -1,1 +1,1 @@
-To use Reddit’s Data API for non-commercial purposes
+https://support.reddithelp.com/hc/en-us/requests/new?ticket_form_id=14868593862164
