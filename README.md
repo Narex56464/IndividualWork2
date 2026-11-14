@@ -1,8 +1,3 @@
-const values = [
-  rowNumber,
-  appointment.client_name,
-  appointment.phone,
-  appointment.specialist_name,
-  formatDate(appointment.appt_date),
-  String(appointment.appt_time).slice(0, 5)
-];
+const confirmed = confirm(
+  'Удалить запись №' + rowNumber + '?'
+);
