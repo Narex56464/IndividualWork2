@@ -1,1 +1,2 @@
-https://support.reddithelp.com/hc/en-us/requests/new?ticket_form_id=14868593862164
+for (const [index, appointment] of result.entries()) {
+  const rowNumber = index + 1;
