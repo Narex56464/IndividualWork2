@@ -1,3 +1,4 @@
-const confirmed = confirm(
-  'Удалить запись №' + rowNumber + '?'
+statusSelect.setAttribute(
+  'aria-label',
+  'Статус записи №' + rowNumber
 );
