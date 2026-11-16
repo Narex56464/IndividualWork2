@@ -1,148 +1,48 @@
-/* Задание 8. Боковая панель */
+/* Подвал сайта */
 
-.sidebar {
-  padding: 20px;
+.footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--gap);
 
-  border: 1px solid var(--color-border);
+  margin-top: 10px;
+  padding: 24px;
+
+  border-top: 1px solid var(--color-border);
   border-radius: var(--radius);
 
   background: var(--color-surface);
-  box-shadow: var(--shadow);
 }
 
-.sidebar__title {
-  margin-bottom: 14px;
-
-  font-size: 1.25rem;
-  line-height: 1.3;
+.footer__column {
+  min-width: 0;
 }
 
-.facts {
-  display: grid;
-  gap: 10px;
+.footer__title {
+  margin-bottom: 8px;
 
-  margin: 0;
-  padding-left: 20px;
+  font-size: 1rem;
+  color: var(--color-text);
 }
 
-.facts li::marker {
-  color: var(--color-accent);
-}
-
-.sidebar__note {
-  margin-top: 16px;
-  padding-top: 14px;
-
-  border-top: 1px solid var(--color-border);
-
+.footer p {
   color: var(--color-muted);
   font-size: 0.9rem;
 }
 
-
-/* Форма бронирования */
-
-.booking {
-  padding: 24px;
-
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-
-  background: var(--color-surface);
-  box-shadow: var(--shadow);
+.footer a {
+  color: var(--color-primary);
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
 }
 
-.form {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 18px;
+.footer a:hover {
+  color: var(--color-accent);
 }
 
-/* Подпись и поле располагаются друг под другом */
-.form__field {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-
-  min-width: 0;
-}
-
-.form__label {
-  font-weight: 700;
-}
-
-/* Общий вид полей */
-.form__input {
-  width: 100%;
-  min-width: 0;
-
-  padding: 11px 12px;
-
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-
-  font: inherit;
-  color: var(--color-text);
-  background: var(--color-surface);
-
-  transition:
-    border-color 0.2s ease,
-    outline-color 0.2s ease;
-}
-
-.form__input::placeholder {
-  color: var(--color-muted);
-}
-
-.form__input:focus {
-  border-color: var(--color-primary);
-}
-
-.form__input:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
-/* Поле пожеланий можно растянуть по высоте */
-textarea.form__input {
-  min-height: 110px;
-  resize: vertical;
-}
-
-/* Эти элементы занимают всю ширину сетки */
-.form__field--wide {
-  grid-column: 1 / -1;
-}
-
-/* Чекбокс и текст согласия */
-.checkbox {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-
-  cursor: pointer;
-}
-
-.checkbox input {
-  flex-shrink: 0;
-
-  width: 18px;
-  height: 18px;
-  margin-top: 4px;
-
-  accent-color: var(--color-primary);
-}
-
-/* Кнопка отправки */
-.form__submit {
-  grid-column: 1 / -1;
-  justify-self: start;
-}
-
-/* На более широком экране — два столбца полей */
-/* 600px — выбранный для этого варианта порог */
-@media (min-width: 600px) {
-  .form {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+/* На широком экране — три колонки */
+@media (min-width: 700px) {
+  .footer {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
