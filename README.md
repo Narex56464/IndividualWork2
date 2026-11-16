@@ -1,100 +1,110 @@
-/* Задание 4. Первый экран */
+/* Задание 5. Карточки туров */
 
-.hero {
-  position: relative;
+/* Заголовки разделов */
+.section-title {
+  margin-bottom: 20px;
+
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+
+.content > .section-title:not(:first-child) {
+  margin-top: 36px;
+}
+
+/* Сетка карточек */
+.tours {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--gap);
+}
+
+/* Карточка */
+.tour {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+
   overflow: hidden;
-
-  padding: 60px 30px;
+  border: 1px solid var(--color-border);
   border-radius: var(--radius);
 
-  color: white;
-  background: linear-gradient(120deg, #2f4b8f, #7b2ff7);
-
-  animation: hero-appear 0.7s ease both;
-}
-
-/* Заголовок */
-.hero__title {
-  max-width: 18ch;
-  margin-bottom: 16px;
-
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  line-height: 1.15;
-}
-
-/* Описание */
-.hero__text {
-  max-width: 52ch;
-  margin-bottom: 24px;
-}
-
-/* Возрастная метка */
-.hero__badge {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-
-  padding: 4px 12px;
-  border-radius: 999px;
-
-  color: var(--color-text);
   background: var(--color-surface);
-
-  font-weight: 700;
-}
-
-/* Общий стиль кнопок */
-.button {
-  display: inline-block;
-
-  padding: 12px 22px;
-  border: none;
-  border-radius: 999px;
-
-  font: inherit;
-  font-weight: 700;
-  line-height: 1.3;
-  text-align: center;
-  text-decoration: none;
-
-  color: white;
-  background: var(--color-accent);
-  cursor: pointer;
+  box-shadow: var(--shadow);
 
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease;
 }
 
-.button:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow);
+.tour:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(28, 31, 43, 0.16);
 }
 
-/* Видимый фокус при управлении клавиатурой */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-  outline: 3px solid var(--color-accent);
-  outline-offset: 4px;
+/* Фотография */
+.tour__photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
 }
 
-/* Контрастный фокус кнопки на цветном фоне */
-.hero .button:focus-visible {
-  outline-color: var(--color-surface);
+/* Текстовая часть карточки */
+.tour__body {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 12px;
+
+  padding: 20px;
 }
 
-/* Появление первого экрана */
-@keyframes hero-appear {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
+/* Метка расположена над текстом, в углу фотографии */
+.tour__tag {
+  position: absolute;
+  top: -14px;
+  right: 14px;
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  padding: 4px 12px;
+  border-radius: 999px;
+
+  color: white;
+  background: var(--color-accent);
+
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* Название тура */
+.tour__title {
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+/* Описание */
+.tour__text {
+  color: var(--color-muted);
+}
+
+/* Длительность и цена — внизу карточки */
+.tour__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: auto;
+  padding-top: 12px;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.tour__price {
+  color: var(--color-primary);
+  font-weight: 700;
 }
