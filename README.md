@@ -1,10 +1,8 @@
-/* Задание 7. Шаги поездки с CSS-счётчиком */
+/* Задание 7. Нумерация шагов */
 
 .steps {
-  /* Создаём счётчик */
   counter-reset: step;
 
-  /* Убираем стандартные номера и отступы */
   list-style: none;
   margin: 0;
   padding: 0;
@@ -14,17 +12,13 @@
 }
 
 .steps__item {
-  /* Увеличиваем счётчик для каждого пункта */
   counter-increment: step;
 
   position: relative;
-  min-height: 36px;
-  padding-left: 50px;
-
-  color: var(--color-text);
+  min-height: 34px;
+  padding: 4px 0 4px 50px;
 }
 
-/* Номер в кружке перед текстом */
 .steps__item::before {
   content: counter(step);
 
@@ -40,4 +34,9 @@
   border-radius: 50%;
 
   color: white;
-  backgr
+  background: var(--color-primary);
+
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+}
